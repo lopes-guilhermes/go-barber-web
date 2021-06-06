@@ -61,7 +61,7 @@ const ForgotPassword: React.FC = () => {
       
       addToast({
         type: 'error',
-        title: 'Erro na Autenticação',
+        title: 'Erro na recuperação de senha',
         description: 'Ocorreu um erro ao tentar realizar a recuperação de senha, tente novamente.'
       });
     } finally {
@@ -86,7 +86,7 @@ const ForgotPassword: React.FC = () => {
             <Button loading={loading} type="submit">Recuperar</Button>
           </Form>
           
-          <Link to="/signin">
+          <Link to="/">
             <FiLogIn />
             Voltar ao login
           </Link>
