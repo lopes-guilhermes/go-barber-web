@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-redeclare */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useCallback, useState, useEffect, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { FiClock, FiPower } from 'react-icons/fi';
 import DayPicker, { DayModifiers } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
-import { isToday, format, isAfter } from 'date-fns';
+import { isToday, format, isAfter, parseISO } from 'date-fns';
 import ptBr from 'date-fns/locale/pt-BR';
 
 import { 
@@ -22,7 +23,6 @@ import {
 import logoImg from '../../assets/logo.svg';
 import { useAuth } from '../../hooks/auth';
 import api from '../../services/api';
-import { parseISO } from 'date-fns/esm';
 
 interface MonthAvailabilityItem {
   day: number;
@@ -133,7 +133,7 @@ const Dashboard: React.FC = () => {
             <img src={user.avatar_url} alt={user.name} />
             <div>
               <span>Bem-vindo,</span>
-              <strong>{user.name}</strong>
+              <Link to="/profile"><strong>{user.name}</strong></Link>
             </div>
             <button type="button" onClick={signOut}>
               <FiPower />
